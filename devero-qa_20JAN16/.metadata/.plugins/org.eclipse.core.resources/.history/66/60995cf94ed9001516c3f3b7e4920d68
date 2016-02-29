@@ -1,0 +1,495 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.a1qa</groupId>
+    <artifactId>devero-qa</artifactId>
+    <name>devero-qa</name>
+    <packaging>jar</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+
+	<url>jenkins.demohoster.com</url>
+	<ciManagement>
+		<system>Jenkins</system>
+	</ciManagement>
+
+	<repositories>
+		<repository>
+            <id>central</id>
+            <name>Maven Central</name>
+            <url>http://repo1.maven.org/maven2</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+	</repositories>
+
+	<dependencies>
+	    <dependency>
+	        <groupId>net.jsourcerer.webdriver</groupId>
+	        <artifactId>JSErrorCollector</artifactId>
+	        <version>0.5</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/JSErrorCollector-0.5.jar</systemPath>
+	    </dependency>
+		<dependency>
+			<groupId>org.sikuli</groupId>
+			<artifactId>sikuli-core</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.sikuli</groupId>
+			<artifactId>sikuli-webdriver</artifactId>
+			<version>1.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.sikuli</groupId>
+			<artifactId>sikuli-api</artifactId>
+			<version>1.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.jexcelapi</groupId>
+			<artifactId>jxl</artifactId>
+			<version>2.6.12</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.16</version>
+			<exclusions>
+				<exclusion>
+					<groupId>javax.mail</groupId>
+					<artifactId>mail</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jms</groupId>
+					<artifactId>jms</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jdmk</groupId>
+					<artifactId>jmxtools</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.jmx</groupId>
+					<artifactId>jmxri</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.9</version>
+		</dependency>
+		<dependency>
+	      <groupId>org.testng</groupId>
+	      <artifactId>testng</artifactId>
+	      <version>6.8.7</version>
+	      <scope>test</scope>
+	    </dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-support</artifactId>
+			<version>${selenium.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>com.opera</groupId>
+			<artifactId>operadriver</artifactId>
+			<version>1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-safari-driver</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-ie-driver</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<dependency>
+	        <groupId>pdfbox</groupId>
+	        <artifactId>pdfbox</artifactId>
+	        <version>0.7.3</version>
+         </dependency>
+		<dependency>
+			<groupId>org.uncommons.aqa</groupId>
+			<artifactId>reportng.aqa</artifactId>
+			<version>1.8.0-SNAPSHOT</version>
+			<type>jar</type>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/reportng.aqa-1.8.0.jar</systemPath>
+			<exclusions>
+				<exclusion>
+					<groupId>org.testng</groupId>
+					<artifactId>testng</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>biz.neustar</groupId>
+			<artifactId>browsermob-proxy</artifactId>
+			<version>2.0-beta-6</version>
+		<exclusions>
+	        <exclusion>
+	            <groupId>org.apache.commons</groupId>
+	            <artifactId>commons-io</artifactId>
+	        </exclusion>
+	        <exclusion>
+	            <groupId>org.apache.httpcomponents</groupId>
+	            <artifactId>httpclient</artifactId>
+	        </exclusion>
+	        <exclusion>
+	            <groupId>org.apache.httpcomponents</groupId>
+	            <artifactId>httpmime</artifactId>
+	        </exclusion>
+	      </exclusions>
+		</dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>3.10-FINAL</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>3.10-FINAL</version>
+        </dependency>
+        <dependency>
+            <groupId>xml-apis</groupId>
+            <artifactId>xml-apis</artifactId>
+            <version>1.4.01</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20090211</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jayway.jsonpath</groupId>
+            <artifactId>json-path-assert</artifactId>
+            <version>0.9.0</version>
+            <scope>test</scope>
+        </dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>1.7.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>1.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-safari-driver</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.6</version>
+		</dependency>
+		
+		<!-- APITests Dependencies - START -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.6</version><!-- latest available is 1.9 -->
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.3</version><!-- <version>1.2</version> -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>fluent-hc</artifactId>
+			<version>4.4-beta1</version> <!-- <version>4.5</version> -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.4-beta1</version> <!-- <version>4.5</version> -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient-cache</artifactId>
+			<version>4.4-beta1</version><!-- <version>4.5</version> -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient-win</artifactId>
+			<version>4.4-beta1</version><!-- <version>4.5</version> -->
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4-beta1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.4-beta1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna-platform</artifactId>
+			<version>4.1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.34</version><!-- <version>5.1.36</version> -->
+		</dependency>
+	<!-- 
+		<dependency>
+	<groupId>org.apache.xmlrpc</groupId>
+	<artifactId>xmlrpc</artifactId>
+	<version>3.0</version>
+</dependency>
+		 -->
+		<dependency>
+			<groupId>org.apache.ws.commons.util</groupId>
+			<artifactId>ws-commons-util</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+		<dependency>
+	         <groupId>org.apache.pdfbox</groupId>
+	         <artifactId>pdfbox</artifactId>
+	         <version>1.8.8</version>
+        </dependency>
+        
+		
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-remote-resources-plugin</artifactId>
+			    <version>1.5</version>
+			    <configuration>
+			    <includes>
+			    	<include>**/*.exe</include>
+			    </includes>
+			    </configuration>
+			</plugin>
+			<plugin>
+    			<groupId>org.apache.maven.plugins</groupId>
+    			<artifactId>maven-antrun-plugin</artifactId>
+    			<version>1.6</version>
+    			<executions>
+        			<execution>
+            			<id>process-test-classes</id>
+            			<phase>process-test-classes</phase>
+            			<configuration>
+                			<target>
+                    			<chmod file="target/test-classes/chromedriver" perm="755"/>
+                			</target>
+            			</configuration>
+            			<goals>
+                			<goal>run</goal>
+            			</goals>
+        			</execution>
+    			</executions>
+			</plugin>
+			<plugin>
+        		<groupId>org.apache.maven.plugins</groupId>
+        		<artifactId>maven-compiler-plugin</artifactId>
+        		<version>3.0</version>
+        		<configuration>
+           			<source>1.7</source>
+           			<target>1.7</target>
+        		</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.5</version>
+			</plugin>
+ 			<plugin>
+ 				<groupId>org.apache.maven.plugins</groupId>
+ 				<artifactId>maven-site-plugin</artifactId>
+ 				<version>3.4</version>
+ 				<configuration>
+ 					<generateSitemap>true</generateSitemap>
+ 				</configuration>
+ 			</plugin>
+			<!-- this create jar file of code from src/test/java so modules with tests
+				can share code -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1.2</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.18.1</version>
+				<configuration>
+					<systemPropertyVariables>
+						<!-- Escape logs in the report -->
+						<org.uncommons.reportng.escape-output>false</org.uncommons.reportng.escape-output>
+						<!-- The report title -->
+						<org.uncommons.reportng.title>Devero</org.uncommons.reportng.title>
+						<!-- Should be analized with custom analizer-->
+						<org.uncommons.reportng.invoke-analyz>false</org.uncommons.reportng.invoke-analyz>
+						<!-- List of custom exceptions. Should be defined manually -->
+						<org.uncommons.reportng.analyz>DATA_ERROR,SERVER_ERROR,ELEMENT_ABSENT,UNKNOWN_ERROR</org.uncommons.reportng.analyz>
+						<!-- Generate excel report -->
+						<org.uncommons.reportng.excel-report>false</org.uncommons.reportng.excel-report>
+						<!-- Folder name for custom report -->
+						<org.uncommons.reportng.custom-report-dir>report</org.uncommons.reportng.custom-report-dir>
+						<!-- Display screenshots after every step -->
+						<org.uncommons.reportng.everystepscreen>true</org.uncommons.reportng.everystepscreen>
+						<!-- One of type of the report -->
+						<org.uncommons.reportng.create-only-fails-report>true</org.uncommons.reportng.create-only-fails-report>
+						<!-- Url to company logo -->
+						<org.uncommons.reportng.logo>https://datafox-data.s3.amazonaws.com/images/cb_afb1595676111b5139d5c52737e096ad.png</org.uncommons.reportng.logo>
+						<!-- Sorting by test case number (in the test's class name -->
+						<org.uncommons.reportng.shouldorder>false</org.uncommons.reportng.shouldorder>
+                        <!-- Convert steps to UTF-8 -->
+                        <org.uncommons.reportng.convert-steps-text>true</org.uncommons.reportng.convert-steps-text>
+                        <!-- Nested steps divider -->
+                        <org.uncommons.reportng.global-logstep-part>====-----</org.uncommons.reportng.global-logstep-part>
+                        <!-- Logging page loading time -->
+                        <org.uncommons.reportng.logPageLoadTime>false</org.uncommons.reportng.logPageLoadTime>
+                        <!-- Extension of ms office excel files -->
+                        <logexcelpart>xlsx</logexcelpart>
+                        <!-- zephyr connector key -->
+                        <project.zephyrconnection>false</project.zephyrconnection>																											                      
+					</systemPropertyVariables>
+					<suiteXmlFiles>
+						<suiteXmlFile>src/test/resources/${suite}.xml</suiteXmlFile>
+					</suiteXmlFiles>
+					<properties>
+						<property>
+							<name>usedefaultlisteners</name>
+							<value>false</value>
+						</property>
+						<property>
+							<name>listener</name>
+							<value>org.uncommons.reportng.HTMLReporter,org.uncommons.reportng.JUnitXMLReporter, org.testng.reporters.FailedReporter</value>
+						</property>
+					</properties>
+				 	<workingDirectory>target/</workingDirectory>
+					<reportDirectory>target/</reportDirectory>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>integration-test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+        </plugins>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<includeTestSourceDirectory>true</includeTestSourceDirectory>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.16</version>
+				<configuration>
+					<showSuccess>true</showSuccess>
+				</configuration>
+
+			</plugin>
+		</plugins>
+	</reporting>
+	
+	<properties>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.zephyrconnection>false</project.zephyrconnection>
+        <selenium.version>2.44.0</selenium.version>
+        <suite>TestSuite</suite>
+	</properties>
+	
+</project>

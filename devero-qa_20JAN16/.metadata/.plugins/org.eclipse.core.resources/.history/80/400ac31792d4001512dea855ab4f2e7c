@@ -1,0 +1,18 @@
+package devero.tests.regression;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class TableTest {
+	public static void main(String[] args) {
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://t4.devero.com/login.action?site=qa");
+		driver.findElement(By.xpath(".//*[@id='left']/form/input[1]")).sendKeys("sa");
+		driver.findElement(By.xpath(".//*[@id='left']/form/input[2]")).sendKeys("testing123");
+		driver.findElement(By.xpath(".//*[@id='submitButton']")).click();
+		
+		
+
+}
+}
