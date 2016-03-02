@@ -11,10 +11,11 @@ import org.testng.annotations.Test;
 import com.pages.HomePage;
 import com.utilities.Utilities;
 
-public class VisaCheckout {
-	WebDriver driver;
-	@BeforeMethod
-	public void setUp() throws IOException{
+public class VisaCheckout extends Utilities {
+	//WebDriver driver;
+	//@BeforeMethod
+	/*public void openBrowser() throws IOException{
+		getdriver("FireFox");
 		driver = new FirefoxDriver();
 		driver.get(Utilities.getProperty(("url")));
 	}
@@ -27,4 +28,5 @@ public void visaCheckoutGuestUser() throws IOException{
 	HomePage.searchProduct(".0352060001", driver);
 	
 }
+}*/
 }
