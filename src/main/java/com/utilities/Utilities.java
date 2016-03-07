@@ -21,7 +21,7 @@ protected static WebDriver driver;
 public static String getProperty(String Property) throws IOException{
 Properties prop = new Properties();
 //System.out.println(System.getProperty("user.dir") + "\\src\\test\\resources\\env.properties");
-FileInputStream Fis = new FileInputStream(new File("C:\\Users\\shubham.kushwah\\workspace\\POM\\src\\test\\resources\\env.properties"));
+FileInputStream Fis = new FileInputStream(new File(System.getProperty("user.dir") + "\\src\\test\\resources\\env.properties"));
 prop.load(Fis);
 return prop.getProperty(Property);
 }
@@ -35,20 +35,42 @@ public static void getdriver() throws Throwable {
 		{
 		
 		case "FireFox":
-			driver = new FirefoxDriver();
-			driver.get(Utilities.getProperty("url"));
+//			driver = new FirefoxDriver();
+//			driver.get(Utilities.getProperty("url"));
+			
+			 FirefoxProfile ffProfile = new FirefoxProfile();
+	            String firebugPath = "D:\\firebug-2.0.14.xpi";
+	            String firepathPath = "D:\\firepath-0.9.7.1-fx.xpi";
+	            try {
+					ffProfile.addExtension(new File(firebugPath));
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+	            try {
+					ffProfile.addExtension(new File(firepathPath));
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				}
+	            ffProfile.setPreference("dom.max_chrome_script_run_time", 0);
+	            ffProfile.setPreference("dom.max_script_run_time", 0);
+	            ffProfile.setPreference("currentVersion", "2.0.14");
+	    		ffProfile.setPreference("currentVersion", "0.9.7.1");
+	    		driver = new FirefoxDriver(ffProfile);
+	    		driver.get(Utilities.getProperty("url"));
 			//return driver;
 			
-		/*case "chrome":
-			System.setProperty("webdriver.chrome.driver","D:/chromedriver.exe");
-			driver=new ChromeDriver();
-			//return driver;
-			
-	    case "IE":
-			System.setProperty("webdriver.ie.driver","D:/IEDriverServer.exe");
-			//driver=new InternatexploreDriver();
-			//return driver;
-*/		}
+//		case "chrome":
+//			System.setProperty("webdriver.chrome.driver","D:/chromedriver.exe");
+//			driver=new ChromeDriver();
+//			//return driver;
+//			
+//	    case "IE":
+//			System.setProperty("webdriver.ie.driver","D:/IEDriverServer.exe");
+//			driver=new InternetExplorerDriver();
+//			//return driver;
+		}
 						
 	} catch (WebDriverException e) {
 		System.out.println(e.getMessage());
@@ -58,11 +80,3 @@ public static void getdriver() throws Throwable {
 }
 	
 }
-
-	/*public static WebDriver getDriver() {
-		return driver;
-	}
-
-	public static void setDriver(WebDriver driver) {
-		Utilities.driver = driver;
-	}}*/

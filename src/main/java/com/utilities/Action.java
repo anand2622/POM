@@ -20,6 +20,7 @@ public class Action extends Utilities {
 		United_Kingdom("United Kingdom"),
 		Ladies("Ladies"),
 		Men("Men");
+		
 	
 		private String link;
 

@@ -13,12 +13,12 @@ import com.utilities.Utilities;
 
 
 public class HomePage {
-	static String searchField = ".//*[@id='main-search']";
-	static String searchButton = ".//*[@id='search-field']/span";
+	static String searchField = ".//*[@id='search-header']";
+	static String searchButton = ".//*[@id='searchGo']";
 	 
 	public static void searchProduct(String productid, WebDriver driver) throws IOException {
-		driver.get(Utilities.getProperty("url"));
-		driver.findElement(By.xpath(searchField)).sendKeys(".0352060001");
+		//driver.get(Utilities.getProperty("url"));
+		driver.findElement(By.xpath(searchField)).sendKeys(productid);
 		driver.findElement(By.xpath(searchButton)).click();
 	}
 	  
